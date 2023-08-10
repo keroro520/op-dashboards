@@ -113,7 +113,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "coordinator_elections_count_total{namespace=~\"$namespace\"}",
@@ -124,7 +124,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "increase(coordinator_elections_count_total{namespace=~\"$namespace\"})[5m]",
@@ -212,7 +212,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "coordinator_election_failures_count_total{namespace=~\"$namespace\"}",
@@ -223,7 +223,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "increase(coordinator_election_failures_count_total{namespace=~\"$namespace\"})[5m]",
@@ -313,7 +313,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "coordinator_election_duration_ms_sum{namespace=~\"$namespace\"}/coordinator_election_duration_ms_count{namespace=~\"$namespace\"}",
@@ -401,7 +401,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "coordinator_waiting_convergence_duration_ms_sum{namespace=~\"$namespace\"}/coordinator_waiting_convergence_duration_ms_count{namespace=~\"$namespace\"}",
@@ -500,7 +500,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "coordinator_hc_failures_count{namespace=~\"$namespace\"}",
@@ -511,7 +511,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "increase(sum(coordinator_hc_failures_count{namespace=~\"$namespace\"}))[5m]",
@@ -600,7 +600,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "coordinator_hc_op_geth_duration_ms_sum{namespace=~\"$namespace\"}/coordinator_hc_op_geth_duration_ms_count{namespace=~\"$namespace\"}",
@@ -688,7 +688,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "coordinator_hc_op_node_duration_ms_sum{namespace=~\"$namespace\"}/coordinator_hc_op_node_duration_ms_count{namespace=~\"$namespace\"}",
@@ -787,7 +787,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "coordinator_http_requests_count_total{namespace=~\"$namespace\"}",
@@ -874,7 +874,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "coordinator_http_request_duration_ms_sum{namespace=~\"$namespace\"}/coordinator_http_request_duration_ms_count{namespace=~\"$namespace\"}",
@@ -960,7 +960,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "coordinator_http_responses_count_total{namespace=~\"$namespace\"}",
@@ -1060,7 +1060,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "time() - kube_pod_start_time{namespace=~\"$namespace\", pod=~\"$pod\"}",
@@ -1147,7 +1147,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "kube_pod_container_status_ready{namespace=~\"$namespace\", pod=~\"$pod\"}",
@@ -1235,7 +1235,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "sum(container_memory_rss{namespace=~\"$namespace\", pod=~\"$pod\"}) ",
@@ -1324,7 +1324,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=~\"$namespace\", pod=~\"$pod\"}[5m])*100)",
@@ -1347,15 +1347,15 @@
       {
         "hide": 2,
         "name": "namespace",
-        "query": "bsc-qa-l2-opt-qanet-ha",
+        "query": "__NAMESPACE__",
         "skipUrlSync": false,
         "type": "constant"
       },
       {
         "current": {
           "selected": false,
-          "text": "qanet-ha-optimism-bedrock-coordinator-0",
-          "value": "qanet-ha-optimism-bedrock-coordinator-0"
+          "text": "__PODPREFIX__-coordinator-0",
+          "value": "__PODPREFIX__-coordinator-0"
         },
         "definition": "label_values(pod)",
         "hide": 0,
@@ -1368,7 +1368,7 @@
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
-        "regex": "/qanet-ha-optimism-bedrock.*coordinator-.*/",
+        "regex": "/__PODPREFIX__.*coordinator-.*/",
         "skipUrlSync": false,
         "sort": 0,
         "type": "query"

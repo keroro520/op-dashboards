@@ -168,7 +168,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": false,
               "expr": "max by (pod) (op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_unsafe\"})",
@@ -182,7 +182,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": false,
               "expr": "max by (pod) (op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_safe\"})",
@@ -196,7 +196,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": false,
               "expr": "max by (pod) (op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_finalized\"})",
@@ -365,7 +365,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l2_unsafe\",pod=~\"$pod\",layer=\"l2\"}) - max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l2_safe\",pod=~\"$pod\",layer=\"l2\"})",
@@ -452,7 +452,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_unsafe\"}",
@@ -543,7 +543,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_safe\"}",
@@ -634,7 +634,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_finalized\"}",
@@ -739,7 +739,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "rate(op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_unsafe\"}[10m])",
@@ -830,7 +830,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "rate(op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_safe\"}[10m])",
@@ -921,7 +921,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "rate(op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_finalized\"}[10m])",
@@ -1029,7 +1029,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l1_head\",pod=~\"$pod\",layer=\"l1\"}) - max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l1_derived\",pod=~\"$pod\",layer=\"l1\"})",
@@ -1116,7 +1116,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l1\",type=\"l1_head\"}",
@@ -1207,7 +1207,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l1\",type=\"l1_derived\"}",
@@ -1258,7 +1258,7 @@
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
-        "regex": "/qanet-ha-optimism-bedrock.*op-node-.*/",
+        "regex": "/__PODPREFIX__.*op-node-.*/",
         "skipUrlSync": false,
         "sort": 1,
         "type": "query"
@@ -1335,7 +1335,7 @@
       {
         "hide": 2,
         "name": "namespace",
-        "query": "bsc-qa-l2-opt-qanet-ha",
+        "query": "__NAMESPACE__",
         "skipUrlSync": false,
         "type": "constant"
       }

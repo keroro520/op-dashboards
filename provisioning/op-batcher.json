@@ -107,7 +107,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "op_batcher_default_balance{namespace=\"$namespace\"}",
@@ -204,7 +204,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "increase(op_batcher_default_txmgr_publish_total{namespace=\"$namespace\"}[$interval])",
@@ -289,7 +289,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "op_batcher_default_txmgr_pending_txs{namespace=\"$namespace\"}",
@@ -375,7 +375,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "op_batcher_default_txmgr_tx_confirmed_latency_ms{namespace=\"$namespace\"}",
@@ -477,7 +477,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "op_batcher_default_input_bytes{namespace=\"$namespace\",stage=\"closed\"}",
@@ -565,7 +565,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "op_batcher_default_output_bytes{namespace=\"$namespace\"}",
@@ -653,7 +653,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "op_batcher_default_channel_num_frames{namespace=\"$namespace\"}",
@@ -741,7 +741,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
+                "uid": "__DATASOURCE__"
               },
               "exemplar": true,
               "expr": "histogram_quantile(0.5, op_batcher_default_channel_compr_ratio_bucket{namespace=\"$namespace\"})",
@@ -767,10 +767,10 @@
         "current": {
           "selected": true,
           "text": [
-            "qanet-ha-optimism-bedrock-op-batcher-0"
+            "__PODPREFIX__-op-batcher-0"
           ],
           "value": [
-            "qanet-ha-optimism-bedrock-op-batcher-0"
+            "__PODPREFIX__-op-batcher-0"
           ]
         },
         "definition": "label_values(pod)",
@@ -785,7 +785,7 @@
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
-        "regex": "/qanet-ha-optimism-bedrock-op-batcher.*/",
+        "regex": "/__PODPREFIX__-op-batcher.*/",
         "skipUrlSync": false,
         "sort": 1,
         "type": "query"
@@ -861,7 +861,7 @@
       {
         "hide": 2,
         "name": "namespace",
-        "query": "bsc-qa-l2-opt-qanet-ha",
+        "query": "__NAMESPACE__",
         "skipUrlSync": false,
         "type": "constant"
       }

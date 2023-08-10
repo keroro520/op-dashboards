@@ -103,7 +103,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "rpc_duration_${method}_success{namespace=\"$namespace\",quantile=\"0.75\",pod=~\"$pod\"}",
@@ -195,7 +195,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "rpc_duration_${method}_success{namespace=\"$namespace\",quantile=\"0.95\",pod=~\"$pod\"}",
@@ -287,7 +287,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "__DATASOURCE__"
           },
           "exemplar": true,
           "expr": "rpc_duration_${method}_success{namespace=\"$namespace\",quantile=\"0.99\",pod=~\"$pod\"}",
@@ -311,7 +311,7 @@
       {
         "hide": 2,
         "name": "namespace",
-        "query": "bsc-qa-l2-opt-qanet-ha",
+        "query": "__NAMESPACE__",
         "skipUrlSync": false,
         "type": "constant"
       },
@@ -333,7 +333,7 @@
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
-        "regex": "/qanet-ha-optimism-bedrock.*l2-.*/",
+        "regex": "/__PODPREFIX__.*l2-.*/",
         "skipUrlSync": false,
         "sort": 1,
         "type": "query"
