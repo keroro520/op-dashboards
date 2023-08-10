@@ -31,7 +31,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 4,
@@ -54,7 +54,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -66,7 +66,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 1,
@@ -80,7 +80,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -325,7 +325,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 1,
@@ -339,7 +339,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -449,7 +449,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -528,7 +528,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "exemplar": true,
           "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_unsafe\"}",
@@ -549,7 +549,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -628,7 +628,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "exemplar": true,
           "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_safe\"}",
@@ -649,7 +649,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -728,7 +728,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "exemplar": true,
           "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_finalized\"}",
@@ -750,7 +750,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 1,
@@ -763,7 +763,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -838,7 +838,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "rate(op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_unsafe\"}[10m])",
@@ -859,7 +859,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -934,7 +934,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "rate(op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_safe\"}[10m])",
@@ -955,7 +955,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1030,7 +1030,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "rate(op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_finalized\"}[10m])",
@@ -1053,7 +1053,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -1065,7 +1065,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 1,
@@ -1078,7 +1078,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -1156,7 +1156,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l1_head\",pod=~\"$pod\",layer=\"l1\"}) - max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l1_derived\",pod=~\"$pod\",layer=\"l1\"})",
@@ -1173,7 +1173,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1248,7 +1248,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l1\",type=\"l1_head\"}",
@@ -1269,7 +1269,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1344,7 +1344,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l1\",type=\"l1_derived\"}",
@@ -1368,7 +1368,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+            "uid": "${datasource}"
           },
           "refId": "A"
         }
@@ -1396,7 +1396,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          "uid": "${datasource}"
         },
         "definition": "label_values(pod)",
         "hide": 0,
