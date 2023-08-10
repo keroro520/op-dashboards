@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -21,12 +24,15 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 353,
-  "iteration": 1688632546730,
+  "id": 3565,
   "links": [],
   "liveNow": false,
   "panels": [
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
       "gridPos": {
         "h": 4,
         "w": 24,
@@ -35,15 +41,33 @@
       },
       "id": 26,
       "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
         "content": "- TODO `op_node_default_refs_number{layer=\"l2\",type=\"received_payload\"}`",
         "mode": "markdown"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "9.5.0-pre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "TODO",
       "type": "text"
     },
     {
-      "collapsed": true,
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -51,622 +75,696 @@
         "y": 4
       },
       "id": 11,
-      "panels": [
+      "panels": [],
+      "targets": [
         {
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "custom": {
-                "align": "auto",
-                "displayMode": "color-text"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "L2.Unsafe"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 102
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "pod"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 304
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "L2.Safe"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 77
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "L2.Finalized"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 97
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Safe Lag (L2.Unsafe - L2.Safe)"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 217
-                  }
-                ]
-              }
-            ]
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
           },
-          "gridPos": {
-            "h": 9,
-            "w": 16,
-            "x": 0,
-            "y": 2
-          },
-          "id": 13,
-          "options": {
-            "footer": {
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "frameIndex": 0,
-            "showHeader": true,
-            "sortBy": [
-              {
-                "desc": true,
-                "displayName": "L2.Unsafe"
-              }
-            ]
-          },
-          "pluginVersion": "8.3.3",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "__DATASOURCE__"
-              },
-              "exemplar": false,
-              "expr": "max by (pod) (op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_unsafe\"})",
-              "format": "table",
-              "hide": false,
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "__DATASOURCE__"
-              },
-              "exemplar": false,
-              "expr": "max by (pod) (op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_safe\"})",
-              "format": "table",
-              "hide": false,
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "__DATASOURCE__"
-              },
-              "exemplar": false,
-              "expr": "max by (pod) (op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_finalized\"})",
-              "format": "table",
-              "hide": false,
-              "instant": true,
-              "interval": "",
-              "legendFormat": "",
-              "refId": "C"
-            }
-          ],
-          "title": "Numbers",
-          "transformations": [
-            {
-              "id": "filterFieldsByName",
-              "options": {
-                "include": {
-                  "names": [
-                    "pod",
-                    "Value #A",
-                    "Value #B",
-                    "Value #C"
-                  ]
-                }
-              }
-            },
-            {
-              "id": "seriesToColumns",
-              "options": {
-                "byField": "pod"
-              }
-            },
-            {
-              "id": "organize",
-              "options": {
-                "excludeByName": {},
-                "indexByName": {},
-                "renameByName": {
-                  "Value #A": "L2.Unsafe",
-                  "Value #B": "L2.Safe",
-                  "Value #C": "L2.Finalized"
-                }
-              }
-            },
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "Safe Lag (L2.Unsafe - L2.Safe)",
-                "binary": {
-                  "left": "L2.Unsafe",
-                  "operator": "-",
-                  "reducer": "sum",
-                  "right": "L2.Safe"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "reducer": "sum"
-                }
-              }
-            },
-            {
-              "id": "calculateField",
-              "options": {
-                "binary": {
-                  "left": "L2.Safe",
-                  "operator": "-",
-                  "reducer": "sum",
-                  "right": "L2.Finalized"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "reducer": "sum"
-                }
-              }
-            }
-          ],
-          "type": "table"
+          "refId": "A"
         }
       ],
       "title": "OP Node Summary ⭐️⭐️⭐️",
       "type": "row"
     },
     {
-      "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "color-text"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "L2.Unsafe"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 102
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "pod"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 304
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "L2.Safe"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 77
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "L2.Finalized"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 97
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Safe Lag (L2.Unsafe - L2.Safe)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 217
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 16,
+        "x": 0,
+        "y": 5
+      },
+      "id": 13,
+      "options": {
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 0,
+        "showHeader": true,
+        "showRowNums": false,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "L2.Unsafe"
+          }
+        ]
+      },
+      "pluginVersion": "9.5.0-pre",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "exemplar": false,
+          "expr": "max by (pod) (op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_unsafe\"})",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "exemplar": false,
+          "expr": "max by (pod) (op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_safe\"})",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "exemplar": false,
+          "expr": "max by (pod) (op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_finalized\"})",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "",
+          "refId": "C"
+        }
+      ],
+      "title": "Numbers",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "pod",
+                "Value #A",
+                "Value #B",
+                "Value #C"
+              ]
+            }
+          }
+        },
+        {
+          "id": "seriesToColumns",
+          "options": {
+            "byField": "pod"
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Value #A": "L2.Unsafe",
+              "Value #B": "L2.Safe",
+              "Value #C": "L2.Finalized"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Safe Lag (L2.Unsafe - L2.Safe)",
+            "binary": {
+              "left": "L2.Unsafe",
+              "operator": "-",
+              "reducer": "sum",
+              "right": "L2.Safe"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "L2.Safe",
+              "operator": "-",
+              "reducer": "sum",
+              "right": "L2.Finalized"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 14
       },
       "id": 6,
-      "panels": [
+      "panels": [],
+      "targets": [
         {
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "line+area"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  },
-                  {
-                    "color": "red",
-                    "value": 3000
-                  }
-                ]
-              }
-            },
-            "overrides": []
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
           },
-          "gridPos": {
-            "h": 8,
-            "w": 24,
-            "x": 0,
-            "y": 2
-          },
-          "id": 17,
-          "options": {
-            "legend": {
-              "calcs": [
-                "last"
-              ],
-              "displayMode": "table",
-              "placement": "right",
-              "sortBy": "Last",
-              "sortDesc": true
-            },
-            "tooltip": {
-              "mode": "single"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "__DATASOURCE__"
-              },
-              "exemplar": true,
-              "expr": "max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l2_unsafe\",pod=~\"$pod\",layer=\"l2\"}) - max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l2_safe\",pod=~\"$pod\",layer=\"l2\"})",
-              "hide": false,
-              "instant": false,
-              "interval": "",
-              "legendFormat": "{{pod}}",
-              "refId": "C"
-            }
-          ],
-          "title": "Safe Lag ( l2_unsafe - l2_safe ) ⭐️⭐️⭐️",
-          "type": "timeseries"
-        },
-        {
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 17,
-            "w": 8,
-            "x": 0,
-            "y": 10
-          },
-          "id": 2,
-          "options": {
-            "legend": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "displayMode": "table",
-              "placement": "bottom"
-            },
-            "tooltip": {
-              "mode": "single"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "__DATASOURCE__"
-              },
-              "exemplar": true,
-              "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_unsafe\"}",
-              "interval": "",
-              "legendFormat": "{{pod}}",
-              "refId": "A"
-            }
-          ],
-          "title": "L2.Unsafe",
-          "transformations": [
-            {
-              "id": "extractFields",
-              "options": {}
-            }
-          ],
-          "type": "timeseries"
-        },
-        {
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 17,
-            "w": 8,
-            "x": 8,
-            "y": 10
-          },
-          "id": 3,
-          "options": {
-            "legend": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "displayMode": "table",
-              "placement": "bottom"
-            },
-            "tooltip": {
-              "mode": "single"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "__DATASOURCE__"
-              },
-              "exemplar": true,
-              "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_safe\"}",
-              "interval": "",
-              "legendFormat": "{{pod}}",
-              "refId": "A"
-            }
-          ],
-          "title": "L2.Safe",
-          "transformations": [
-            {
-              "id": "extractFields",
-              "options": {}
-            }
-          ],
-          "type": "timeseries"
-        },
-        {
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green"
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 17,
-            "w": 8,
-            "x": 16,
-            "y": 10
-          },
-          "id": 4,
-          "options": {
-            "legend": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "displayMode": "table",
-              "placement": "bottom"
-            },
-            "tooltip": {
-              "mode": "single"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "__DATASOURCE__"
-              },
-              "exemplar": true,
-              "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_finalized\"}",
-              "interval": "",
-              "legendFormat": "{{pod}}",
-              "refId": "A"
-            }
-          ],
-          "title": "L2.Finalized",
-          "transformations": [
-            {
-              "id": "extractFields",
-              "options": {}
-            }
-          ],
-          "type": "timeseries"
+          "refId": "A"
         }
       ],
       "title": "OP Node L2 ⭐️⭐️⭐️",
       "type": "row"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line+area"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 3000
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 17,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true,
+          "sortBy": "Last",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "exemplar": true,
+          "expr": "max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l2_unsafe\",pod=~\"$pod\",layer=\"l2\"}) - max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l2_safe\",pod=~\"$pod\",layer=\"l2\"})",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{pod}}",
+          "refId": "C"
+        }
+      ],
+      "title": "Safe Lag ( l2_unsafe - l2_safe ) ⭐️⭐️⭐️",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 17,
+        "w": 8,
+        "x": 0,
+        "y": 23
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
+          "exemplar": true,
+          "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_unsafe\"}",
+          "interval": "",
+          "legendFormat": "{{pod}}",
+          "refId": "A"
+        }
+      ],
+      "title": "L2.Unsafe",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 17,
+        "w": 8,
+        "x": 8,
+        "y": 23
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
+          "exemplar": true,
+          "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_safe\"}",
+          "interval": "",
+          "legendFormat": "{{pod}}",
+          "refId": "A"
+        }
+      ],
+      "title": "L2.Safe",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 17,
+        "w": 8,
+        "x": 16,
+        "y": 23
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
+          "exemplar": true,
+          "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_finalized\"}",
+          "interval": "",
+          "legendFormat": "{{pod}}",
+          "refId": "A"
+        }
+      ],
+      "title": "L2.Finalized",
+      "transformations": [
+        {
+          "id": "extractFields",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 40
       },
       "id": 15,
       "panels": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -729,7 +827,8 @@
                 "lastNotNull"
               ],
               "displayMode": "table",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "single"
@@ -739,7 +838,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "rate(op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_unsafe\"}[10m])",
@@ -758,6 +857,10 @@
           "type": "timeseries"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -820,7 +923,8 @@
                 "lastNotNull"
               ],
               "displayMode": "table",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "single"
@@ -830,7 +934,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "rate(op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_safe\"}[10m])",
@@ -849,6 +953,10 @@
           "type": "timeseries"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -911,7 +1019,8 @@
                 "lastNotNull"
               ],
               "displayMode": "table",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "single"
@@ -921,7 +1030,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "rate(op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_finalized\"}[10m])",
@@ -940,20 +1049,37 @@
           "type": "timeseries"
         }
       ],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "OP Node SyncStatus.L2 Rate",
       "type": "row"
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 41
       },
       "id": 21,
       "panels": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "description": "",
           "fieldConfig": {
             "defaults": {
@@ -1018,6 +1144,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -1029,7 +1156,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l1_head\",pod=~\"$pod\",layer=\"l1\"}) - max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l1_derived\",pod=~\"$pod\",layer=\"l1\"})",
@@ -1044,6 +1171,10 @@
           "type": "timeseries"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1106,7 +1237,8 @@
                 "lastNotNull"
               ],
               "displayMode": "table",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "single"
@@ -1116,7 +1248,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l1\",type=\"l1_head\"}",
@@ -1135,6 +1267,10 @@
           "type": "timeseries"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1197,7 +1333,8 @@
                 "lastNotNull"
               ],
               "displayMode": "table",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "single"
@@ -1207,7 +1344,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l1\",type=\"l1_derived\"}",
@@ -1227,11 +1364,22 @@
           "type": "timeseries"
         }
       ],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "OP Node L1 ⭐️",
       "type": "row"
     }
   ],
-  "schemaVersion": 34,
+  "refresh": "",
+  "revision": 1,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1246,6 +1394,10 @@
             "$__all"
           ]
         },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+        },
         "definition": "label_values(pod)",
         "hide": 0,
         "includeAll": true,
@@ -1258,7 +1410,7 @@
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
-        "regex": "/__PODPREFIX__.*op-node-.*/",
+        "regex": "/optimism-l2-opbnb.*/",
         "skipUrlSync": false,
         "sort": 1,
         "type": "query"
@@ -1335,9 +1487,26 @@
       {
         "hide": 2,
         "name": "namespace",
-        "query": "__NAMESPACE__",
+        "query": "op-bnb-l2-ha",
         "skipUrlSync": false,
         "type": "constant"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "nodereal-nonprod-vmselect",
+          "value": "nodereal-nonprod-vmselect"
+        },
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "/^nodereal-nonprod-vmselect/",
+        "skipUrlSync": false,
+        "type": "datasource"
       }
     ]
   },
@@ -1346,9 +1515,9 @@
     "to": "now"
   },
   "timepicker": {},
-  "timezone": "",
-  "title": "__PROJECT__ OP Node",
-  "uid": "_8YQlb94z",
-  "version": 12,
+  "timezone": "Asia/Shanghai",
+  "title": "opBNB prereleasetest - OP Node - WIP by Kero",
+  "uid": "falkfj2",
+  "version": 3,
   "weekStart": ""
 }
