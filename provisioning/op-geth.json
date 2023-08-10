@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -21,13 +24,16 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 354,
-  "iteration": 1688632541569,
+  "id": 2942,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -37,6 +43,10 @@
       "id": 8,
       "panels": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -44,7 +54,9 @@
               },
               "custom": {
                 "align": "auto",
-                "displayMode": "color-text"
+                "cellOptions": {
+                  "type": "color-text"
+                }
               },
               "mappings": [],
               "thresholds": {
@@ -79,7 +91,7 @@
             "h": 9,
             "w": 17,
             "x": 0,
-            "y": 1
+            "y": 17
           },
           "id": 10,
           "options": {
@@ -103,7 +115,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": false,
               "expr": "chain_head_header{namespace=\"$namespace\", pod=~\"$pod\"}",
@@ -116,7 +128,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": false,
               "expr": "chain_head_safe{namespace=\"$namespace\", pod=~\"$pod\"}",
@@ -130,7 +142,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": false,
               "expr": "chain_head_finalized{namespace=\"$namespace\", pod=~\"$pod\"}",
@@ -209,11 +221,24 @@
           "type": "table"
         }
       ],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "OP Geth Summary",
       "type": "row"
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -223,6 +248,10 @@
       "id": 6,
       "panels": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -276,7 +305,7 @@
             "h": 19,
             "w": 8,
             "x": 0,
-            "y": 2
+            "y": 18
           },
           "id": 2,
           "options": {
@@ -286,6 +315,7 @@
               ],
               "displayMode": "table",
               "placement": "bottom",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -297,7 +327,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "chain_head_header{namespace=\"$namespace\", pod=~\"$pod\"}",
@@ -310,6 +340,10 @@
           "type": "timeseries"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -363,7 +397,7 @@
             "h": 19,
             "w": 8,
             "x": 8,
-            "y": 2
+            "y": 18
           },
           "id": 3,
           "options": {
@@ -373,6 +407,7 @@
               ],
               "displayMode": "table",
               "placement": "bottom",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -384,7 +419,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "chain_head_safe{namespace=\"$namespace\", pod=~\"$pod\"}",
@@ -397,6 +432,10 @@
           "type": "timeseries"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -450,7 +489,7 @@
             "h": 19,
             "w": 8,
             "x": 16,
-            "y": 2
+            "y": 18
           },
           "id": 4,
           "options": {
@@ -460,6 +499,7 @@
               ],
               "displayMode": "table",
               "placement": "bottom",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -471,7 +511,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "chain_head_finalized{namespace=\"$namespace\", pod=~\"$pod\"}",
@@ -484,11 +524,24 @@
           "type": "timeseries"
         }
       ],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "OP Geth Header",
       "type": "row"
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -498,12 +551,18 @@
       "id": 20,
       "panels": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -536,7 +595,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -562,18 +622,20 @@
               ],
               "displayMode": "table",
               "placement": "bottom",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
             "tooltip": {
-              "mode": "single"
+              "mode": "single",
+              "sort": "none"
             }
           },
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "rpc_duration_engine_forkchoiceUpdatedV1_success{namespace=\"$namespace\",quantile=\"0.75\",pod=~\"$pod\"}",
@@ -589,12 +651,18 @@
           "type": "timeseries"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -627,7 +695,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -653,18 +722,20 @@
               ],
               "displayMode": "table",
               "placement": "bottom",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
             "tooltip": {
-              "mode": "single"
+              "mode": "single",
+              "sort": "none"
             }
           },
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "rpc_duration_engine_forkchoiceUpdatedV1_success{namespace=\"$namespace\",quantile=\"0.95\",pod=~\"$pod\"}",
@@ -680,12 +751,18 @@
           "type": "timeseries"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -718,7 +795,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -744,18 +822,20 @@
               ],
               "displayMode": "table",
               "placement": "bottom",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
             "tooltip": {
-              "mode": "single"
+              "mode": "single",
+              "sort": "none"
             }
           },
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "rpc_duration_engine_forkchoiceUpdatedV1_success{namespace=\"$namespace\",quantile=\"0.99\",pod=~\"$pod\"}",
@@ -771,12 +851,18 @@
           "type": "timeseries"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -809,7 +895,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -835,18 +922,20 @@
               ],
               "displayMode": "table",
               "placement": "bottom",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
             "tooltip": {
-              "mode": "single"
+              "mode": "single",
+              "sort": "none"
             }
           },
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "rpc_duration_eth_getBlockByNumber_success{namespace=\"$namespace\",quantile=\"0.75\",pod=~\"$pod\"}",
@@ -862,12 +951,18 @@
           "type": "timeseries"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -900,7 +995,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -926,18 +1022,20 @@
               ],
               "displayMode": "table",
               "placement": "bottom",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
             "tooltip": {
-              "mode": "single"
+              "mode": "single",
+              "sort": "none"
             }
           },
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "rpc_duration_eth_getBlockByNumber_success{namespace=\"$namespace\",quantile=\"0.95\",pod=~\"$pod\"}",
@@ -953,12 +1051,18 @@
           "type": "timeseries"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -991,7 +1095,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1017,18 +1122,20 @@
               ],
               "displayMode": "table",
               "placement": "bottom",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
             "tooltip": {
-              "mode": "single"
+              "mode": "single",
+              "sort": "none"
             }
           },
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "rpc_duration_eth_getBlockByNumber_success{namespace=\"$namespace\",quantile=\"0.75\",pod=~\"$pod\"}",
@@ -1044,11 +1151,24 @@
           "type": "timeseries"
         }
       ],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Op Geth RPC",
       "type": "row"
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1058,12 +1178,18 @@
       "id": 24,
       "panels": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
                 "mode": "palette-classic"
               },
               "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
@@ -1096,7 +1222,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1111,7 +1238,7 @@
             "h": 10,
             "w": 12,
             "x": 0,
-            "y": 1
+            "y": 4
           },
           "id": 22,
           "options": {
@@ -1120,17 +1247,19 @@
                 "lastNotNull"
               ],
               "displayMode": "table",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
-              "mode": "single"
+              "mode": "single",
+              "sort": "none"
             }
           },
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "__DATASOURCE__"
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
               },
               "exemplar": true,
               "expr": "rate(rpc_failure{namespace=\"$namespace\",pod=~\"$pod\"}[$interval])",
@@ -1143,11 +1272,131 @@
           "type": "timeseries"
         }
       ],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "OP Geth RPC Failure",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 26,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 11,
+            "w": 24,
+            "x": 0,
+            "y": 5
+          },
+          "id": 28,
+          "options": {
+            "legend": {
+              "calcs": [
+                "last",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+              },
+              "editorMode": "builder",
+              "expr": "txpool_pending{namespace=~\"$namespace\", pod=~\"$pod\"}",
+              "legendFormat": "pending.{{pod}}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "TxPool",
+          "type": "timeseries"
+        }
+      ],
+      "title": "OP Geth TxPool",
       "type": "row"
     }
   ],
-  "schemaVersion": 34,
+  "refresh": "",
+  "revision": 1,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1157,6 +1406,10 @@
           "selected": false,
           "text": "All",
           "value": "$__all"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
         },
         "definition": "label_values(pod)",
         "hide": 0,
@@ -1170,7 +1423,7 @@
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
-        "regex": "/__PODPREFIX__.*l2-.*/",
+        "regex": "/optimism-l2-opbnb-qa.*/",
         "skipUrlSync": false,
         "sort": 1,
         "type": "query"
@@ -1247,7 +1500,7 @@
       {
         "hide": 2,
         "name": "namespace",
-        "query": "__NAMESPACE__",
+        "query": "op-bnb-l2-ha",
         "skipUrlSync": false,
         "type": "constant"
       }
@@ -1258,9 +1511,9 @@
     "to": "now"
   },
   "timepicker": {},
-  "timezone": "",
-  "title": "__PROJECT__ OP Geth",
+  "timezone": "Asia/Shanghai",
+  "title": "opBNB ha OP Geth",
   "uid": "gSq_WY94z",
-  "version": 6,
+  "version": 7,
   "weekStart": ""
 }

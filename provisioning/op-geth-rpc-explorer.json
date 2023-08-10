@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -21,18 +24,23 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 356,
-  "iteration": 1688632835929,
+  "id": 2944,
   "links": [],
   "liveNow": false,
   "panels": [
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -88,22 +96,25 @@
       "options": {
         "legend": {
           "calcs": [
-            "last"
+            "last",
+            "max"
           ],
           "displayMode": "table",
           "placement": "bottom",
-          "sortBy": "Last",
+          "showLegend": true,
+          "sortBy": "Max",
           "sortDesc": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "__DATASOURCE__"
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
           },
           "exemplar": true,
           "expr": "rpc_duration_${method}_success{namespace=\"$namespace\",quantile=\"0.75\",pod=~\"$pod\"}",
@@ -119,12 +130,18 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -180,22 +197,25 @@
       "options": {
         "legend": {
           "calcs": [
-            "last"
+            "last",
+            "max"
           ],
           "displayMode": "table",
           "placement": "bottom",
-          "sortBy": "Last",
+          "showLegend": true,
+          "sortBy": "Max",
           "sortDesc": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "__DATASOURCE__"
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
           },
           "exemplar": true,
           "expr": "rpc_duration_${method}_success{namespace=\"$namespace\",quantile=\"0.95\",pod=~\"$pod\"}",
@@ -211,12 +231,18 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -272,22 +298,25 @@
       "options": {
         "legend": {
           "calcs": [
-            "last"
+            "last",
+            "max"
           ],
           "displayMode": "table",
           "placement": "bottom",
-          "sortBy": "Last",
+          "showLegend": true,
+          "sortBy": "Max",
           "sortDesc": true
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "__DATASOURCE__"
+            "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
           },
           "exemplar": true,
           "expr": "rpc_duration_${method}_success{namespace=\"$namespace\",quantile=\"0.99\",pod=~\"$pod\"}",
@@ -303,7 +332,9 @@
       "type": "timeseries"
     }
   ],
-  "schemaVersion": 34,
+  "refresh": "",
+  "revision": 1,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -311,7 +342,7 @@
       {
         "hide": 2,
         "name": "namespace",
-        "query": "__NAMESPACE__",
+        "query": "op-bnb-l2-ha",
         "skipUrlSync": false,
         "type": "constant"
       },
@@ -320,6 +351,10 @@
           "selected": false,
           "text": "All",
           "value": "$__all"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "a1337ede-bc93-4884-90f1-71c4caa944c6"
         },
         "definition": "label_values(pod)",
         "hide": 0,
@@ -333,7 +368,7 @@
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
-        "regex": "/__PODPREFIX__.*l2-.*/",
+        "regex": "/optimism-l2-opbnb.*/",
         "skipUrlSync": false,
         "sort": 1,
         "type": "query"
@@ -524,8 +559,8 @@
     "to": "now"
   },
   "timepicker": {},
-  "timezone": "",
-  "title": "__PROJECT__ OP Geth RPC Explorer",
+  "timezone": "Asia/Shanghai",
+  "title": "opBNB ha OP Geth RPC Explorer",
   "uid": "fzqIDYrVk",
   "version": 6,
   "weekStart": ""
