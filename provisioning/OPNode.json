@@ -1,4 +1,54 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_NODEREAL-NONPROD-VMSELECT",
+      "label": "nodereal-nonprod-vmselect",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    },
+    {
+      "name": "VAR_NAMESPACE",
+      "type": "constant",
+      "label": "namespace",
+      "value": "op-bnb-l2-ha-2",
+      "description": ""
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "9.5.0-pre"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "text",
+      "name": "Text",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -24,14 +74,14 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 3580,
+  "id": null,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
       },
       "gridPos": {
         "h": 4,
@@ -54,7 +104,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "refId": "A"
         }
@@ -91,7 +141,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
       },
       "fieldConfig": {
         "defaults": {
@@ -214,7 +264,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "exemplar": false,
           "expr": "max by (pod) (op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_unsafe\"})",
@@ -228,7 +278,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "exemplar": false,
           "expr": "max by (pod) (op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_safe\"})",
@@ -242,7 +292,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "exemplar": false,
           "expr": "max by (pod) (op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_finalized\"})",
@@ -350,7 +400,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
       },
       "description": "",
       "fieldConfig": {
@@ -403,7 +453,32 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "optimism-l2-opbnb-qa-bridge-0-0"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -432,7 +507,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "exemplar": true,
           "expr": "max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l2_unsafe\",pod=~\"$pod\",layer=\"l2\"}) - max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l2_safe\",pod=~\"$pod\",layer=\"l2\"})",
@@ -449,7 +524,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
       },
       "fieldConfig": {
         "defaults": {
@@ -527,7 +602,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "exemplar": true,
           "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_unsafe\"}",
@@ -548,7 +623,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
       },
       "fieldConfig": {
         "defaults": {
@@ -626,7 +701,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "exemplar": true,
           "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_safe\"}",
@@ -647,7 +722,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
       },
       "fieldConfig": {
         "defaults": {
@@ -725,7 +800,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "exemplar": true,
           "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_finalized\"}",
@@ -760,7 +835,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "fieldConfig": {
             "defaults": {
@@ -835,7 +910,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
               },
               "exemplar": true,
               "expr": "rate(op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_unsafe\"}[10m])",
@@ -856,7 +931,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "fieldConfig": {
             "defaults": {
@@ -931,7 +1006,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
               },
               "exemplar": true,
               "expr": "rate(op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_safe\"}[10m])",
@@ -952,7 +1027,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1027,7 +1102,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
               },
               "exemplar": true,
               "expr": "rate(op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l2\",type=\"l2_finalized\"}[10m])",
@@ -1075,7 +1150,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "description": "",
           "fieldConfig": {
@@ -1153,7 +1228,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
               },
               "exemplar": true,
               "expr": "max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l1_head\",pod=~\"$pod\",layer=\"l1\"}) - max by (pod) (op_node_default_refs_number{namespace=\"$namespace\", type=~\"l1_derived\",pod=~\"$pod\",layer=\"l1\"})",
@@ -1170,7 +1245,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1245,7 +1320,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
               },
               "exemplar": true,
               "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l1\",type=\"l1_head\"}",
@@ -1266,7 +1341,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1341,7 +1416,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
               },
               "exemplar": true,
               "expr": "op_node_default_refs_number{namespace=~\"$namespace\",pod=~\"$pod\",layer=\"l1\",type=\"l1_derived\"}",
@@ -1382,18 +1457,10 @@
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "${datasource}"
+          "uid": "${DS_NODEREAL-NONPROD-VMSELECT}"
         },
         "definition": "label_values(pod)",
         "hide": 0,
@@ -1484,9 +1551,21 @@
       {
         "hide": 2,
         "name": "namespace",
-        "query": "op-bnb-l2-ha-2",
+        "query": "${VAR_NAMESPACE}",
         "skipUrlSync": false,
-        "type": "constant"
+        "type": "constant",
+        "current": {
+          "value": "${VAR_NAMESPACE}",
+          "text": "${VAR_NAMESPACE}",
+          "selected": false
+        },
+        "options": [
+          {
+            "value": "${VAR_NAMESPACE}",
+            "text": "${VAR_NAMESPACE}",
+            "selected": false
+          }
+        ]
       },
       {
         "current": {
@@ -1514,7 +1593,7 @@
   "timepicker": {},
   "timezone": "Asia/Shanghai",
   "title": "opBNB-prerelease.OPNode",
-  "uid": "falkfj2",
-  "version": 1,
+  "uid": "falkfj22",
+  "version": 2,
   "weekStart": ""
 }
