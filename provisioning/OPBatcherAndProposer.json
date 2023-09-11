@@ -1,42 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_ALICLOUD_STAGING",
-      "label": "Alicloud Staging",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    },
-    {
-      "name": "VAR_NAMESPACE",
-      "type": "constant",
-      "label": "namespace",
-      "value": "opbnb-mainnet-critical",
-      "description": ""
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "9.5.0-pre"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -62,17 +24,42 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": null,
+  "id": 3946,
   "links": [],
   "liveNow": false,
   "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fd32b1f8-2f4d-4e50-a023-ca2fca0b0ca1"
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 211,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "\n| env | datasource | namespace |\n| :--- | :--- | :--- |\n| mainnet | `bnbchain-prod` | `opbnb-mainnet-critical` |\n| testnet | `nodereal-prod-vmselect` |  `opbnb-testnet-critical` |",
+        "mode": "markdown"
+      },
+      "pluginVersion": "9.5.0-pre",
+      "title": "Guide",
+      "type": "text"
+    },
     {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 5
       },
       "id": 195,
       "panels": [],
@@ -82,7 +69,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -140,7 +127,7 @@
         "h": 4,
         "w": 12,
         "x": 0,
-        "y": 1
+        "y": 6
       },
       "id": 191,
       "options": {
@@ -159,7 +146,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "kube_pod_container_status_ready{namespace =~ \"$namespace\", pod=~\".*op-batcher-0\"}",
@@ -175,7 +162,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -233,7 +220,7 @@
         "h": 4,
         "w": 12,
         "x": 12,
-        "y": 1
+        "y": 6
       },
       "id": 193,
       "options": {
@@ -252,7 +239,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "kube_pod_container_status_ready{namespace =~ \"$namespace\",pod=~\".*op-proposer-0\"}",
@@ -267,7 +254,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -325,7 +312,7 @@
         "h": 4,
         "w": 12,
         "x": 0,
-        "y": 5
+        "y": 10
       },
       "id": 18,
       "options": {
@@ -346,7 +333,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -363,7 +350,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -421,7 +408,7 @@
         "h": 4,
         "w": 12,
         "x": 12,
-        "y": 5
+        "y": 10
       },
       "id": 196,
       "options": {
@@ -442,7 +429,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -462,7 +449,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 14
       },
       "id": 24,
       "panels": [],
@@ -472,7 +459,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -530,7 +517,7 @@
         "h": 9,
         "w": 17,
         "x": 0,
-        "y": 10
+        "y": 15
       },
       "id": 28,
       "options": {
@@ -551,7 +538,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "op_proposer_default_refs_number{namespace =~ \"$namespace\", layer=\"l2\",type=\"proposed\"}",
@@ -562,7 +549,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "op_proposer_default_refs_number{namespace=\"$namespace\", layer=\"l1_origin\", type=\"proposed\"}",
@@ -578,7 +565,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -637,7 +624,7 @@
         "h": 9,
         "w": 7,
         "x": 17,
-        "y": 10
+        "y": 15
       },
       "id": 198,
       "options": {
@@ -658,7 +645,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "increase(op_proposer_default_refs_number{namespace =~ \"$namespace\", layer=\"l2\",type=\"proposed\"}[1h])",
@@ -680,7 +667,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 19
+        "y": 24
       },
       "id": 20,
       "panels": [],
@@ -699,7 +686,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -757,7 +744,7 @@
         "h": 5,
         "w": 24,
         "x": 0,
-        "y": 20
+        "y": 25
       },
       "id": 207,
       "options": {
@@ -778,7 +765,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "op_batcher_default_refs_number{layer=\"l1\",type=\"latest\", namespace=\"$namespace\"}",
@@ -793,7 +780,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "description": "",
       "fieldConfig": {
@@ -852,7 +839,7 @@
         "h": 8,
         "w": 17,
         "x": 0,
-        "y": 25
+        "y": 30
       },
       "id": 197,
       "options": {
@@ -873,7 +860,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "op_batcher_default_refs_number{namespace =~ \"$namespace\", layer=\"l2\", type=\"loaded\"}",
@@ -888,7 +875,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "description": "",
       "fieldConfig": {
@@ -947,7 +934,7 @@
         "h": 8,
         "w": 7,
         "x": 17,
-        "y": 25
+        "y": 30
       },
       "id": 199,
       "options": {
@@ -968,7 +955,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "expr": "increase(op_batcher_default_refs_number{namespace =~ \"$namespace\", layer=\"l2\", type=\"loaded\"}[1h])",
@@ -986,7 +973,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 33
+        "y": 38
       },
       "id": 201,
       "panels": [],
@@ -996,7 +983,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1054,7 +1041,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 34
+        "y": 39
       },
       "id": 209,
       "options": {
@@ -1076,7 +1063,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1093,7 +1080,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1151,7 +1138,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 34
+        "y": 39
       },
       "id": 4,
       "options": {
@@ -1174,7 +1161,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1193,7 +1180,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1252,7 +1239,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 42
+        "y": 47
       },
       "id": 154,
       "options": {
@@ -1274,7 +1261,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1293,7 +1280,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1352,7 +1339,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 42
+        "y": 47
       },
       "id": 156,
       "options": {
@@ -1373,7 +1360,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1393,7 +1380,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 50
+        "y": 55
       },
       "id": 203,
       "panels": [],
@@ -1403,7 +1390,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "description": "Total number of frames of closed channel.",
       "fieldConfig": {
@@ -1462,7 +1449,7 @@
         "h": 11,
         "w": 8,
         "x": 0,
-        "y": 51
+        "y": 56
       },
       "id": 146,
       "options": {
@@ -1484,7 +1471,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1501,7 +1488,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "description": "Number of input bytes to a channel.\nNumber of bytes ready in the compression buffer.\nNumber of compressed output bytes from a channel.",
       "fieldConfig": {
@@ -1561,7 +1548,7 @@
         "h": 11,
         "w": 9,
         "x": 8,
-        "y": 51
+        "y": 56
       },
       "id": 144,
       "options": {
@@ -1582,7 +1569,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1596,7 +1583,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1610,7 +1597,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1628,7 +1615,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "description": "Compression ratios of closed channel",
       "fieldConfig": {
@@ -1687,7 +1674,7 @@
         "h": 11,
         "w": 7,
         "x": 17,
-        "y": 51
+        "y": 56
       },
       "id": 148,
       "options": {
@@ -1708,7 +1695,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1728,7 +1715,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 62
+        "y": 67
       },
       "id": 205,
       "panels": [],
@@ -1738,7 +1725,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_ALICLOUD_STAGING}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1797,7 +1784,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 63
+        "y": 68
       },
       "id": 181,
       "options": {
@@ -1818,7 +1805,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_ALICLOUD_STAGING}"
+            "uid": "${datasource}"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1842,43 +1829,51 @@
     "list": [
       {
         "current": {
-          "selected": false,
-          "text": "Alicloud Staging",
-          "value": "Alicloud Staging"
+          "selected": true,
+          "text": "bnbchain-prod",
+          "value": "bnbchain-prod"
         },
         "description": "datasource",
-        "hide": 2,
+        "hide": 0,
         "includeAll": false,
         "label": "datasource",
         "multi": false,
         "name": "datasource",
         "options": [],
         "query": "prometheus",
+        "queryValue": "",
         "refresh": 1,
-        "regex": "",
+        "regex": "/(bnbchain-prod|nodereal-prod-vmselect|nodereal-nonprod-vmselect)/",
         "skipUrlSync": false,
         "type": "datasource"
       },
       {
-        "description": "namespace",
-        "hide": 2,
-        "label": "namespace",
-        "name": "namespace",
-        "query": "${VAR_NAMESPACE}",
-        "skipUrlSync": false,
-        "type": "constant",
         "current": {
-          "value": "${VAR_NAMESPACE}",
-          "text": "${VAR_NAMESPACE}",
-          "selected": false
+          "selected": false,
+          "text": "opbnb-mainnet-critical",
+          "value": "opbnb-mainnet-critical"
         },
-        "options": [
-          {
-            "value": "${VAR_NAMESPACE}",
-            "text": "${VAR_NAMESPACE}",
-            "selected": false
-          }
-        ]
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${datasource}"
+        },
+        "definition": "label_values(namespace)",
+        "description": "namespace",
+        "hide": 0,
+        "includeAll": false,
+        "label": "namespace",
+        "multi": false,
+        "name": "namespace",
+        "options": [],
+        "query": {
+          "query": "label_values(namespace)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "/opbnb-.*-critical/",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
       }
     ]
   },
@@ -1888,8 +1883,8 @@
   },
   "timepicker": {},
   "timezone": "Asia/Shanghai",
-  "title": "WIP",
-  "uid": "m-73ZYr4z1422",
-  "version": 1,
+  "title": "Batcher&Proposer",
+  "uid": "m-73ZYr4z14221",
+  "version": 5,
   "weekStart": ""
 }
