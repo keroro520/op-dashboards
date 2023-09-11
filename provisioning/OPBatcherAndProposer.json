@@ -1,8 +1,8 @@
 {
   "__inputs": [
     {
-      "name": "DS_NODEREAL-PROD-VMSELECT",
-      "label": "nodereal-prod-vmselect",
+      "name": "DS_ALICLOUD_STAGING",
+      "label": "Alicloud Staging",
       "description": "",
       "type": "datasource",
       "pluginId": "prometheus",
@@ -12,7 +12,7 @@
       "name": "VAR_NAMESPACE",
       "type": "constant",
       "label": "namespace",
-      "value": "opbnb-testnet-critical",
+      "value": "opbnb-mainnet-critical",
       "description": ""
     }
   ],
@@ -82,7 +82,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+        "uid": "${DS_ALICLOUD_STAGING}"
       },
       "fieldConfig": {
         "defaults": {
@@ -159,10 +159,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
-          "expr": "kube_pod_container_status_ready{namespace =~ \"opbnb-testnet-critical\",pod=~\".*op-batcher-0\"}",
+          "expr": "kube_pod_container_status_ready{namespace =~ \"$namespace\", pod=~\".*op-batcher-0\"}",
           "hide": false,
           "legendFormat": "batcher",
           "range": true,
@@ -175,7 +175,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+        "uid": "${DS_ALICLOUD_STAGING}"
       },
       "fieldConfig": {
         "defaults": {
@@ -252,10 +252,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
-          "expr": "kube_pod_container_status_ready{namespace =~ \"opbnb-testnet-critical\",pod=~\".*op-proposer-0\"}",
+          "expr": "kube_pod_container_status_ready{namespace =~ \"$namespace\",pod=~\".*op-proposer-0\"}",
           "legendFormat": "proposer",
           "range": true,
           "refId": "A"
@@ -267,7 +267,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+        "uid": "${DS_ALICLOUD_STAGING}"
       },
       "fieldConfig": {
         "defaults": {
@@ -346,11 +346,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "op_batcher_default_balance{namespace=\"opbnb-testnet-critical\"}",
+          "expr": "op_batcher_default_balance{namespace=\"$namespace\"}",
           "interval": "",
           "legendFormat": "balance",
           "range": true,
@@ -363,7 +363,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+        "uid": "${DS_ALICLOUD_STAGING}"
       },
       "fieldConfig": {
         "defaults": {
@@ -442,11 +442,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "op_proposer_default_balance{namespace=\"opbnb-testnet-critical\"}",
+          "expr": "op_proposer_default_balance{namespace=\"$namespace\"}",
           "interval": "",
           "legendFormat": "balance",
           "range": true,
@@ -472,7 +472,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+        "uid": "${DS_ALICLOUD_STAGING}"
       },
       "fieldConfig": {
         "defaults": {
@@ -551,10 +551,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
-          "expr": "op_proposer_default_refs_number{namespace =~ \"opbnb-testnet-critical\", layer=\"l2\",type=\"proposed\"}",
+          "expr": "op_proposer_default_refs_number{namespace =~ \"$namespace\", layer=\"l2\",type=\"proposed\"}",
           "legendFormat": "{{layer}}_{{type}}",
           "range": true,
           "refId": "A"
@@ -562,10 +562,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
-          "expr": "op_proposer_default_refs_number{namespace=\"opbnb-testnet-critical\", layer=\"l1_origin\", type=\"proposed\"}",
+          "expr": "op_proposer_default_refs_number{namespace=\"$namespace\", layer=\"l1_origin\", type=\"proposed\"}",
           "hide": true,
           "legendFormat": "l1",
           "range": true,
@@ -578,7 +578,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+        "uid": "${DS_ALICLOUD_STAGING}"
       },
       "fieldConfig": {
         "defaults": {
@@ -658,10 +658,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
-          "expr": "increase(op_proposer_default_refs_number{namespace =~ \"opbnb-testnet-critical\", layer=\"l2\",type=\"proposed\"}[1h])",
+          "expr": "increase(op_proposer_default_refs_number{namespace =~ \"$namespace\", layer=\"l2\",type=\"proposed\"}[1h])",
           "legendFormat": "{{layer}}_{{type}} rate",
           "range": true,
           "refId": "A"
@@ -699,7 +699,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+        "uid": "${DS_ALICLOUD_STAGING}"
       },
       "fieldConfig": {
         "defaults": {
@@ -778,10 +778,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
-          "expr": "op_batcher_default_refs_number{layer=\"l1\",type=\"latest\", namespace=\"opbnb-testnet-critical\"}",
+          "expr": "op_batcher_default_refs_number{layer=\"l1\",type=\"latest\", namespace=\"$namespace\"}",
           "legendFormat": "{{layer}}_{{type}}",
           "range": true,
           "refId": "A"
@@ -793,7 +793,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+        "uid": "${DS_ALICLOUD_STAGING}"
       },
       "description": "",
       "fieldConfig": {
@@ -873,10 +873,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
-          "expr": "op_batcher_default_refs_number{namespace =~ \"opbnb-testnet-critical\", layer=\"l2\", type=\"loaded\"}",
+          "expr": "op_batcher_default_refs_number{namespace =~ \"$namespace\", layer=\"l2\", type=\"loaded\"}",
           "legendFormat": "{{layer}}_{{type}}",
           "range": true,
           "refId": "A"
@@ -888,7 +888,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+        "uid": "${DS_ALICLOUD_STAGING}"
       },
       "description": "",
       "fieldConfig": {
@@ -968,10 +968,10 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
-          "expr": "increase(op_batcher_default_refs_number{namespace =~ \"opbnb-testnet-critical\", layer=\"l2\", type=\"loaded\"}[1h])",
+          "expr": "increase(op_batcher_default_refs_number{namespace =~ \"$namespace\", layer=\"l2\", type=\"loaded\"}[1h])",
           "legendFormat": "{{layer}}_{{type}}",
           "range": true,
           "refId": "A"
@@ -996,7 +996,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+        "uid": "${DS_ALICLOUD_STAGING}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1076,11 +1076,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "increase(op_batcher_default_batcher_tx_total{namespace =~ \"opbnb-testnet-critical\"}[1h])",
+          "expr": "increase(op_batcher_default_batcher_tx_total{namespace =~ \"$namespace\"}[1h])",
           "interval": "",
           "legendFormat": "{{stage}}",
           "range": true,
@@ -1093,7 +1093,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+        "uid": "${DS_ALICLOUD_STAGING}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1174,11 +1174,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "op_batcher_default_txmgr_pending_txs{namespace=\"opbnb-testnet-critical\"}",
+          "expr": "op_batcher_default_txmgr_pending_txs{namespace=\"$namespace\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "pending_txs",
@@ -1193,7 +1193,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+        "uid": "${DS_ALICLOUD_STAGING}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1274,11 +1274,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "op_batcher_default_last_batcher_tx_unix{namespace =~ \"opbnb-testnet-critical\"} * 1000",
+          "expr": "op_batcher_default_last_batcher_tx_unix{namespace =~ \"$namespace\"} * 1000",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -1293,7 +1293,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+        "uid": "${DS_ALICLOUD_STAGING}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1373,11 +1373,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "op_batcher_default_last_channel_unix{namespace =~ \"opbnb-testnet-critical\"} * 1000",
+          "expr": "op_batcher_default_last_channel_unix{namespace =~ \"$namespace\"} * 1000",
           "interval": "",
           "legendFormat": "last_channel.{{stage}}",
           "range": true,
@@ -1388,7 +1388,7 @@
       "type": "timeseries"
     },
     {
-      "collapsed": true,
+      "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1396,443 +1396,441 @@
         "y": 50
       },
       "id": 203,
-      "panels": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
-          },
-          "description": "Total number of frames of closed channel.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 11,
-            "w": 8,
-            "x": 0,
-            "y": 51
-          },
-          "id": 146,
-          "options": {
-            "legend": {
-              "calcs": [
-                "last",
-                "max"
-              ],
-              "displayMode": "table",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_NODEREAL-PROD-VMSELECT}"
-              },
-              "editorMode": "code",
-              "exemplar": true,
-              "expr": "op_batcher_default_channel_num_frames{namespace =~ \"opbnb-testnet-critical\"}",
-              "interval": "",
-              "legendFormat": "Frames",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Channel Frames",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
-          },
-          "description": "Number of input bytes to a channel.\nNumber of bytes ready in the compression buffer.\nNumber of compressed output bytes from a channel.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "stepBefore",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "bytes"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 11,
-            "w": 9,
-            "x": 8,
-            "y": 51
-          },
-          "id": 144,
-          "options": {
-            "legend": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "displayMode": "table",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_NODEREAL-PROD-VMSELECT}"
-              },
-              "editorMode": "code",
-              "exemplar": true,
-              "expr": "op_batcher_default_input_bytes{namespace =~ \"opbnb-testnet-critical\"}",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "channel.input_bytes_{{stage}}",
-              "range": true,
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_NODEREAL-PROD-VMSELECT}"
-              },
-              "editorMode": "code",
-              "exemplar": true,
-              "expr": "op_batcher_default_output_bytes{namespace =~ \"opbnb-testnet-critical\"}",
-              "hide": false,
-              "interval": "",
-              "legendFormat": "channel.output_bytes",
-              "range": true,
-              "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_NODEREAL-PROD-VMSELECT}"
-              },
-              "editorMode": "code",
-              "exemplar": true,
-              "expr": "op_batcher_default_ready_bytes{namespace =~ \"opbnb-testnet-critical\"}",
-              "hide": true,
-              "interval": "",
-              "legendFormat": "channel_ready_bytes",
-              "range": true,
-              "refId": "C"
-            }
-          ],
-          "title": "Channel Size",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
-          },
-          "description": "Compression ratios of closed channel",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 11,
-            "w": 7,
-            "x": 17,
-            "y": 51
-          },
-          "id": 148,
-          "options": {
-            "legend": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "displayMode": "table",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_NODEREAL-PROD-VMSELECT}"
-              },
-              "editorMode": "code",
-              "exemplar": true,
-              "expr": "histogram_quantile(0.75, op_batcher_default_channel_compr_ratio_bucket{namespace =~ \"opbnb-testnet-critical\"})",
-              "interval": "",
-              "legendFormat": "compr ratio",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Channel Compression Ratio P75",
-          "type": "timeseries"
-        }
-      ],
+      "panels": [],
       "title": "Batcher Statistics",
       "type": "row"
     },
     {
-      "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_ALICLOUD_STAGING}"
+      },
+      "description": "Total number of frames of closed channel.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 8,
+        "x": 0,
+        "y": 51
+      },
+      "id": 146,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_ALICLOUD_STAGING}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "op_batcher_default_channel_num_frames{namespace =~ \"$namespace\"}",
+          "interval": "",
+          "legendFormat": "Frames",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Channel Frames",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_ALICLOUD_STAGING}"
+      },
+      "description": "Number of input bytes to a channel.\nNumber of bytes ready in the compression buffer.\nNumber of compressed output bytes from a channel.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "stepBefore",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 9,
+        "x": 8,
+        "y": 51
+      },
+      "id": 144,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_ALICLOUD_STAGING}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "op_batcher_default_input_bytes{namespace =~ \"$namespace\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "channel.input_bytes_{{stage}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_ALICLOUD_STAGING}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "op_batcher_default_output_bytes{namespace =~ \"$namespace\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "channel.output_bytes",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_ALICLOUD_STAGING}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "op_batcher_default_ready_bytes{namespace =~ \"$namespace\"}",
+          "hide": true,
+          "interval": "",
+          "legendFormat": "channel_ready_bytes",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Channel Size",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_ALICLOUD_STAGING}"
+      },
+      "description": "Compression ratios of closed channel",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 7,
+        "x": 17,
+        "y": 51
+      },
+      "id": 148,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_ALICLOUD_STAGING}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "histogram_quantile(0.75, op_batcher_default_channel_compr_ratio_bucket{namespace =~ \"$namespace\"})",
+          "interval": "",
+          "legendFormat": "compr ratio",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Channel Compression Ratio P75",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 51
+        "y": 62
       },
       "id": 205,
-      "panels": [
+      "panels": [],
+      "title": "Batcher Expenditure",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_ALICLOUD_STAGING}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "gwei"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 63
+      },
+      "id": 181,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_NODEREAL-PROD-VMSELECT}"
+            "uid": "${DS_ALICLOUD_STAGING}"
           },
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "gwei"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 63
-          },
-          "id": 181,
-          "options": {
-            "legend": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "displayMode": "table",
-              "placement": "right",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_NODEREAL-PROD-VMSELECT}"
-              },
-              "editorMode": "code",
-              "exemplar": true,
-              "expr": "op_batcher_default_txmgr_tx_fee_gwei{namespace =~ \"opbnb-testnet-critical\"}",
-              "interval": "",
-              "legendFormat": "fee",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "TX Fee",
-          "type": "timeseries"
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "op_batcher_default_txmgr_tx_fee_gwei{namespace =~ \"$namespace\"}",
+          "interval": "",
+          "legendFormat": "fee",
+          "range": true,
+          "refId": "A"
         }
       ],
-      "title": "Batcher Expenditure",
-      "type": "row"
+      "title": "TX Fee",
+      "type": "timeseries"
     }
   ],
   "refresh": "",
@@ -1845,8 +1843,8 @@
       {
         "current": {
           "selected": false,
-          "text": "nodereal-nonprod-vmselect",
-          "value": "nodereal-nonprod-vmselect"
+          "text": "Alicloud Staging",
+          "value": "Alicloud Staging"
         },
         "description": "datasource",
         "hide": 2,
@@ -1892,6 +1890,6 @@
   "timezone": "Asia/Shanghai",
   "title": "WIP",
   "uid": "m-73ZYr4z1422",
-  "version": 6,
+  "version": 1,
   "weekStart": ""
 }
